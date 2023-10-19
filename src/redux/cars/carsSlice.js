@@ -30,4 +30,4 @@ const CarsSlice = createSlice({
       .addCase(fetchCars.rejected, handleRejected),
 });
 
-export const CarsReducer = CarsSlice.reducer;
+export const carsReducer = CarsSlice.reducer;

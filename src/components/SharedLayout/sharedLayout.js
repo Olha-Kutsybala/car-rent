@@ -1,43 +1,19 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
+
 import SideBar from '../SideBar/sideBar';
+import { Container, Main } from './sharedLayout.styled';
 
 const SharedLayout = () => {
-  const [sideBareShow, setSideBareShow] = useState(false);
-
-  const toggleSideBarShow = (status = null) => {
-    if (status === null) {
-      setSideBareShow(prev => !prev);
-    } else {
-      setSideBareShow(status);
-    }
-  };
-
-  useEffect(() => {
-    const body = document.body;
-    if (sideBareShow && window.innerWidth < 1440) {
-      body.style.overflow = 'hidden';
-    } else {
-      body.style.overflow = '';
-    }
-
-    return () => {
-      body.style.overflow = '';
-    };
-  }, [sideBareShow]);
-
   return (
-    <div sideBareShow={sideBareShow}>
-      {sideBareShow && window.innerWidth < 1440}
-      <SideBar toggleSideBarShow={toggleSideBarShow}></SideBar>
-      <button onClick={toggleSideBarShow}>Menu</button>
-      <main>
+    <Container>
+      <SideBar></SideBar>
+      <Main>
         <Suspense>
           <Outlet />
         </Suspense>
-      </main>
-    </div>
+      </Main>
+    </Container>
   );
 };
 
