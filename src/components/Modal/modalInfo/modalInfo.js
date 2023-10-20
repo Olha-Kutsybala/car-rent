@@ -24,10 +24,8 @@ const ModalInfo = ({
   model,
   year,
   rentalPrice,
-  address,
   city,
   country,
-  rentalCompany,
   type,
   mileage,
   functionalities,
@@ -101,13 +99,11 @@ const ModalInfo = ({
           Price:<span> {rentalPrice}</span>
         </RentalItem>
       </RentalInfo>
-      <a
-    
-        href="tel:+380730000000"
-      >
+      <a href="tel:+380730000000">
         <LearnMoreButton
           style={{
             width: '168px',
+            marginTop: '31px',
           }}
         >
           Rental car

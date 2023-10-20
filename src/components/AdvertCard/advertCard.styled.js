@@ -111,6 +111,12 @@ export const LearnMoreButton = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;
 
 export const HeartIcon = styled(BiHeart)`
