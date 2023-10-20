@@ -22,11 +22,11 @@ import {
   HeartIcon,
   HeartIconBlue,
 } from './advertCard.styled';
+import ModalInfo from 'components/Modal/modalInfo/modalInfo';
 
 const { useState } = require('react');
 
 const AdvertCard = ({
-  onClose,
   id,
   img,
   make,
@@ -55,16 +55,14 @@ const AdvertCard = ({
     dispatch(decrementToFavoriteList(id));
   };
 
-  const changeModal = () => {
-    return setModal(prevModal => !modal);
+  const onClose = () => {
+    setModal(prevState => !prevState);
   };
 
   const newAddress = address.split(', ');
   const country = newAddress[2];
   const city = newAddress[1];
   const millString = mileage.toString();
-  // const millSlice = millString.slice(1, 4);
-  // const millForUi = millString[0] + ',' + millSlice;
   const status = favorites.includes(id);
 
   return (
@@ -101,28 +99,31 @@ const AdvertCard = ({
         <OtherInfoItem>{millString}</OtherInfoItem>
         <OtherInfoItem>{functionalities[0]}</OtherInfoItem>
       </OtherInfo>
-      <LearnMoreButton>Learn more</LearnMoreButton>
+      <LearnMoreButton onClick={onClose}>Learn more</LearnMoreButton>
       {modal && (
-        <Modal
-          key={id}
-          model={model}
-          make={make}
-          year={year}
-          rentalPrice={rentalPrice}
-          address={address}
-          rentalCompany={rentalCompany}
-          functionalities={functionalities}
-          id={id}
-          type={type}
-          img={img}
-          fuelConsumption={fuelConsumption}
-          engineSize={engineSize}
-          description={description}
-          accessories={accessories}
-          rentalConditions={rentalConditions}
-          mileage={mileage}
-          onClose={changeModal}
-        />
+        <Modal onClose={onClose}>
+          <ModalInfo
+            onClose={onClose}
+            model={model}
+            make={make}
+            year={year}
+            rentalPrice={rentalPrice}
+            country={country}
+            city={city}
+            address={address}
+            rentalCompany={rentalCompany}
+            functionalities={functionalities}
+            id={id}
+            type={type}
+            img={img}
+            fuelConsumption={fuelConsumption}
+            engineSize={engineSize}
+            description={description}
+            accessories={accessories}
+            rentalConditions={rentalConditions}
+            mileage={mileage}
+          />
+        </Modal>
       )}
     </Card>
   );

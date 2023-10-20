@@ -40,15 +40,11 @@ export const MainInfo = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-  color: #121417;
-  font-family: 'Manrope';
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
 `;
 
 export const MainInfoBlock = styled.div`
   display: flex;
+  align-items: center;
   gap: 4px;
 `;
 
@@ -104,11 +100,17 @@ export const LearnMoreButton = styled.button`
   display: block;
   width: 274px;
   height: 44px;
-  padding: 12px 99px;
+  padding: 12px 0;
   text-align: center;
   border-radius: 12px;
   background-color: #3470ff;
   margin-top: auto;
+  border: none;
+  font-family: Manrope;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
 `;
 
 export const HeartIcon = styled(BiHeart)`

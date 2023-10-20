@@ -1,22 +1,29 @@
-const Modal = ({
-  onClose,
-  id,
-  img,
-  make,
-  model,
-  year,
-  rentalPrice,
-  address,
-  rentalCompany,
-  type,
-  mileage,
-  functionalities,
-  fuelConsumption,
-  engineSize,
-  description,
-  accessories,
-  rentalConditions,
-}) => {
-  return <img src={img} alt={make}></img>;
+import { useEffect } from 'react';
+import { Backdrop, ModalBox } from './modal.styled';
+
+const Modal = ({ onClose, children }) => {
+  useEffect(() => {
+    const handleKeyDow = event => {
+      if (event.code === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDow);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDow);
+    };
+  }, [onClose]);
+
+  const handleBackDropClick = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
+  return (
+    <Backdrop onClick={handleBackDropClick}>
+      <ModalBox>{children}</ModalBox>
+    </Backdrop>
+  );
 };
+
 export default Modal;
