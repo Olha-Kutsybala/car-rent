@@ -24,11 +24,13 @@ const CarsGallery = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <CarsGalleryList cars={cars}>
-          {paginateCards?.map(car => (
-            <AdvertCard key={car.id} {...car} />
-          ))}
-        </CarsGalleryList>
+        <>
+          <CarsGalleryList cars={cars}>
+            {paginateCards?.map(car => (
+              <AdvertCard key={car.id} {...car} />
+            ))}
+          </CarsGalleryList>
+        </>
       )}
       {!isLoading ? (
         totalCards !== page && <LoadMore getPage={getPage} />

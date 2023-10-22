@@ -6,9 +6,9 @@ const SideBar = () => {
     <Sidebar
       rootStyles={{
         [`.${sidebarClasses.container}`]: {
-          backgroundColor: 'rgb(154, 171, 247)',
-          paddingTop: '50px',
-          fontSize: '24px',
+          backgroundColor: '#a7bff8',
+          paddingTop: '150px',
+          fontSize: '36px',
           color: 'white',
           fontWeight: '700',
         },
@@ -17,24 +17,16 @@ const SideBar = () => {
       <Menu
         menuItemStyles={{
           button: {
-            // the active class will be added automatically by react router
-            // so we can use it to style the active menu item
-            [`&.active`]: {
-              backgroundColor: '#13395e',
-              color: '#b6c8d9',
+            padding: '40px',
+            [`&:hover`]: {
+              backgroundColor: '#3470ff',
             },
           },
         }}
       >
-        <MenuItem active={true} component={<Link to="/home" />}>
-          Home
-        </MenuItem>
-        <MenuItem active={true} component={<Link to="/catalog" />}>
-          Catalog
-        </MenuItem>
-        <MenuItem active={true} component={<Link to="/favorites" />}>
-          Favorites
-        </MenuItem>
+        <MenuItem component={<Link to="/home" />}>Home</MenuItem>
+        <MenuItem component={<Link to="/catalog" />}>Catalog</MenuItem>
+        <MenuItem component={<Link to="/favorites" />}>Favorites</MenuItem>
       </Menu>
     </Sidebar>
   );
