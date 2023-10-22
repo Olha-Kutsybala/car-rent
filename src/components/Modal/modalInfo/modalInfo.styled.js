@@ -4,6 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 `;
 
 export const ModalCarImg = styled.img`
