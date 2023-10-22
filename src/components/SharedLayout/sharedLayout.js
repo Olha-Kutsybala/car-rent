@@ -9,7 +9,7 @@ const SharedLayout = () => {
     <Container>
       <SideBar></SideBar>
       <Main>
-        <Suspense>
+        <Suspense fallback={null}>
           <Outlet />
         </Suspense>
       </Main>

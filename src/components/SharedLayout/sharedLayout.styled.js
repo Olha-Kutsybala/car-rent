@@ -5,5 +5,5 @@ export const Container = styled.section`
   display: flex;
 `;
 export const Main = styled.main`
-  padding: 150px 18px 150px 18px;
+  padding: 40px 18px 40px 18px;
 `;

@@ -6,11 +6,12 @@ const SideBar = () => {
     <Sidebar
       rootStyles={{
         [`.${sidebarClasses.container}`]: {
-          backgroundColor: '#a7bff8',
-          paddingTop: '150px',
+          backgroundColor: '#3470ff',
+          paddingTop: '40px',
           fontSize: '36px',
           color: 'white',
           fontWeight: '700',
+          minHeight: '100vh',
         },
       }}
     >

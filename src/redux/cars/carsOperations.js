@@ -8,7 +8,6 @@ export const fetchCars = createAsyncThunk(
       const response = await axios.get(
         'https://64b2da5538e74e386d55a6e2.mockapi.io/api/cars'
       );
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

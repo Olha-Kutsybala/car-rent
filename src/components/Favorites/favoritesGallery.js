@@ -4,12 +4,11 @@ import LoadMore from 'components/LoadMore/loadMore';
 import { Loader } from 'components/Loader/loader';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectCars, selectIsLoading } from 'redux/cars/carsSelectors';
+import { selectCars } from 'redux/cars/carsSelectors';
 import { selectFavorite } from 'redux/favorites/favoritesSelectors';
 
 const FavoritesGallery = () => {
   const cars = useSelector(selectCars);
-  const isLoading = useSelector(selectIsLoading);
   const favorites = useSelector(selectFavorite);
   const favoriteCars = cars.filter(car => favorites.includes(car.id));
 
@@ -22,19 +21,16 @@ const FavoritesGallery = () => {
   const getPage = () => setPage(page + 1);
   return (
     <div>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <CarsGalleryList cars={cars}>
-          {paginateCards?.map(car => (
-            <AdvertCard key={car.id} {...car} />
-          ))}
-        </CarsGalleryList>
-      )}
+      <CarsGalleryList cars={cars}>
+        {paginateCards?.map(car => (
+          <AdvertCard key={car.id} {...car} />
+        ))}
+      </CarsGalleryList>
+
       {favoriteCars.length !== 0 ? (
         totalCards !== page && <LoadMore getPage={getPage} />
       ) : (
-        <p>No favorites</p>
+        <Loader />
       )}
     </div>
   );
